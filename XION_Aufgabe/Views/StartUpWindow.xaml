@@ -1,0 +1,26 @@
+﻿<Window x:Name="StartUpWindow1" x:Class="XION_Aufgabe.Views.StartUpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XION_Aufgabe.Views"
+        xmlns:viewmodels="clr-namespace:XION_Aufgabe.ViewModels"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="450" Width="651.04">
+    <Window.DataContext>
+        <viewmodels:StartUpViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <ListView HorizontalAlignment="Left" Height="378" Margin="19,10,0,0" VerticalAlignment="Top" Width="487" ItemsSource="{Binding PatientsList/}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Vorname" DisplayMemberBinding="{Binding Path=Firstname}" Width="150"/>
+                    <GridViewColumn Header="Nachname" DisplayMemberBinding="{Binding PatientsList/lastname}" Width="150"/>
+                    <GridViewColumn Header="Wohnort" DisplayMemberBinding="{Binding City}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="{Binding ShowPatientAddText}" HorizontalAlignment="Left" Height="47" Margin="511,341,0,0" VerticalAlignment="Top" Width="121" Command="{Binding ShowPatientAddCommand}"/>
+
+    </Grid>
+</Window>
